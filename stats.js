@@ -23,6 +23,7 @@ class BuzzStats extends BuzzPersist {
 			},
 			percentCorrect: {
 				desc: "Your approximate accuracy rate.",
+				transform: val => (val * 100).toFixed(2) + "%"
 			},
 			bestStreak: {
 				desc: "The most problems in a row you've gotten right",
@@ -115,6 +116,7 @@ class BuzzStats extends BuzzPersist {
 		this.increment("attempts");
 		this.add("totalTime", elapsed);
 		this.set("averageTime", this.get("totalTime") / this.get("attempts"));
+		this.set("percentCorrect", this.get("correct") / this.get("attempts"));
 		if(correct) {
 			this.increment("correct");
 			this.increment("currentStreak");

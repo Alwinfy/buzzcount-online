@@ -18,7 +18,6 @@ class BuzzPersist {
 			parsed = JSON.parse(localStorage.getItem(key)) || {};
 		}
 		catch(e) {}
-		console.log(data);
 		for(let datum in data)
 			this.data[datum] = ((datum in parsed) ? parsed : data)[datum];
 	}
