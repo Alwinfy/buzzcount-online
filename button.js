@@ -1,5 +1,5 @@
 class KeyedButton {
-	constructor(paren, label, keys) {
+	constructor(parent, label, keys) {
 		this.button = document.createElement("button");
 		this.button.classList.add("keyed-button");
 		this.button.innerHTML = label;
@@ -8,7 +8,7 @@ class KeyedButton {
 		
 		this.keys = new Set(keys);
 		document.body.addEventListener("keydown", this.hkey.bind(this));
-		paren.appendChild(this.button);
+		parent.appendChild(this.button);
 	}
 	hkey(ev) {
 		if(!ev.target.parentNode.contains(this.button))
@@ -18,8 +18,8 @@ class KeyedButton {
 	}
 }
 class ToggleButton extends KeyedButton {
-	constructor(paren, label, keys) {
-		super(paren, label, keys);
+	constructor(parent, label, keys) {
+		super(parent, label, keys);
 		this.checked = false;
 		this.button.classList.add("toggle-button");
 		this.button.addEventListener("click", this.handle.bind(this));

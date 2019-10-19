@@ -1,5 +1,5 @@
 class RangeMaker {
-	constructor(paren) {
+	constructor(parent) {
 		this.min = 1;
 		this.max = 200;
 	}

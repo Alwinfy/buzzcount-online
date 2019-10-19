@@ -10,7 +10,7 @@ function main() {
 			}
 		return -1;
 	}
-	const paren = document.querySelector(".inner-word-box");
+	const parent = document.querySelector(".inner-word-box");
 	for(let i=0; i<bc.all.length; i++) {
 		const buzz = bc.all[i] || 'fail';
 		const letter = firstletter(buzz);
@@ -18,7 +18,7 @@ function main() {
 		const hl = !~letter ? word :
 			`${word.slice(0, letter)}<u>${word[letter]}</u>${word.slice(letter + 1)}`;
 		this.buttons.push(new ToggleButton(
-			paren, hl,
+			parent, hl,
 			[(i + 1).toString(), buzz[letter]]));
 		this.buttons[i].button.classList.add("game-elem");
 		this.buttons[i].button.classList.add("buzz-button");
