@@ -40,7 +40,7 @@ function main() {
 		for(let i=0; i<buttons.length; i++) {
 			const ok = buttons[i].checked == bc[bc.all[i]](num);
 			allok = allok && ok;
-			animateByClass(buttons[i].button, ok ? "btn-right" : "btn-wrong");
+			if(!ok) animateByClass(buttons[i].button, "btn-wrong");
 			buttons[i].reset();
 		};
 		animateByClass(promp, allok ? "btn-right" : "btn-wrong");
