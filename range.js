@@ -1,3 +1,5 @@
+"use strict";
+
 class RangeMaker {
 	constructor(parent) {
 		this.min = 1;

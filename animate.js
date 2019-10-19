@@ -1,3 +1,5 @@
+"use strict";
+
 function animateByClass(object, cls) {
 	object.classList.remove(cls);
 	void(object.offsetWidth);

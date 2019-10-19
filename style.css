@@ -11,6 +11,8 @@ body {
 }
 .inner-word-box {
 	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
 }
 .game-elem {
 	width: 49%;
@@ -41,7 +43,7 @@ body {
 
 .keyed-button {
 	transition: all 0.1s ease;
-	border: 5px outset lightgray;
+	border: 5px outset #d3d3d3c0;
 	color: rebeccapurple;
 }
 .keyed-button:active {
@@ -62,6 +64,9 @@ body {
 }
 .btn-wrong {
 	animation: 1s ease-in wrong;
+}
+td {
+	padding: 0 0.5em;
 }
 
 @keyframes right {

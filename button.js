@@ -1,3 +1,5 @@
+"use strict";
+
 class KeyedButton {
 	constructor(parent, label, keys) {
 		this.button = document.createElement("button");
@@ -17,6 +19,7 @@ class KeyedButton {
 			this.button.click();
 	}
 }
+
 class ToggleButton extends KeyedButton {
 	constructor(parent, label, keys) {
 		super(parent, label, keys);
