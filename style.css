@@ -2,7 +2,7 @@ body {
 	background-color: #fefbf9;
 }
 
-.flex-container {
+.game-container {
 	width: 100%;
 	max-width: 640px;
 	display: flex;
@@ -12,7 +12,7 @@ body {
 .inner-word-box {
 	width: 100%;
 }
-.flex-elem {
+.game-elem {
 	width: 49%;
 	font-size: 2em;
 	height: 2em;
@@ -24,10 +24,19 @@ body {
 	height: 0.5em;
 }
 
+.last {
+	width: 1em;
+	height: 1em;
+	border: 1px solid black;
+}
+
 .number {
+	display: inline-block;
 	color: darkorchid;
 	font-size: 3em;
 	font-weight: bold;
+	border: 1.5px solid black;
+	padding: 0.2em 0.5em;
 }
 
 .keyed-button {
@@ -38,12 +47,12 @@ body {
 .keyed-button:active {
 	border-style: inset;
 }
-/* .keyed-box:checked + .keyed-button { */
-.toggle-button[style*=inset] {
+.keyed-button[style*=inset] {
 	font-weight: bold;
-	/* text-shadow: 0px 0px 0.5px; */
 	color: blue;
+	/* text-shadow: 0px 0px 0.5px; */
 }
+/* .keyed-box:checked + .keyed-button { */
 .go-button {
 	font-size: 2.5em;
 }

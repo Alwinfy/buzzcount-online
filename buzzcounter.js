@@ -50,7 +50,7 @@ class BuzzCount extends LeastPrime {
 		return ["bang", "buzz", "crash", "fibbi", "pop", "squawk", "whizz", "zip"];
 	}
 	which(number) {
-		return this.all.filter(fun => this[fun](all));
+		return this.all.filter(fun => this[fun](number));
 	}
 	bang(number) {
 		return number % 5 === 0 || number.toString().includes("5");

@@ -20,18 +20,31 @@ function main() {
 		this.buttons.push(new ToggleButton(
 			paren, hl,
 			[(i + 1).toString(), buzz[letter]]));
-		this.buttons[i].button.classList.add("flex-elem");
+		this.buttons[i].button.classList.add("game-elem");
+		this.buttons[i].button.classList.add("buzz-button");
 		this.buttons[i].button.style.backgroundColor = `hsl(${Styler.hueByIndex(i)}, 40%, 90%)`;
-		console.log(Styler.hueByIndex(i));
 	}
 	const goword = "go!";
-	const go = new KeyedButton(document.querySelector('.flex-container'), goword.toUpperCase(), ["Enter", goword[firstletter(goword)]]);
+	const go = new KeyedButton(document.querySelector('.game-container'), goword.toUpperCase(), ["Enter", goword[firstletter(goword)]]);
 	go.button.classList.add("flex-elem");
 	go.button.classList.add("go-button");
+	const rng = new RangeMaker();
+	let num;
+	const promp = document.querySelector('.number');
+	function update() {
+		num = rng.roll();
+		promp.innerText = 'CALC: ' + num;
+	}
 	go.button.addEventListener("click", ev => {
-		buttons.forEach(btn => {
-			animateByClass(btn.button, btn.checked ? "btn-right" : "btn-wrong");
-			btn.reset();
-		});
+		let allok = true;
+		for(let i=0; i<buttons.length; i++) {
+			const ok = buttons[i].checked == bc[bc.all[i]](num);
+			allok = allok && ok;
+			animateByClass(buttons[i].button, ok ? "btn-right" : "btn-wrong");
+			buttons[i].reset();
+		};
+		animateByClass(promp, allok ? "btn-right" : "btn-wrong");
+		update();
 	});
+	update();
 }
