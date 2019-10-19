@@ -119,7 +119,7 @@ class BuzzStats extends BuzzPersist {
 			this.increment("correct");
 			this.increment("currentStreak");
 			this.greatest("bestStreak", this.get("currentStreak"));
-			this.least("fastestTime", elapsed);
+			this.least("bestTime", elapsed);
 		}
 		else this.clear("currentStreak");
 		this.updateView();
