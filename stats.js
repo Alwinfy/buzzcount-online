@@ -59,7 +59,7 @@ class BuzzStats extends BuzzPersist {
 			const key = document.createElement("td");
 			const value = document.createElement("td");
 			const meta = this.constructor.allMeta[stat];
-			key.innerText = stat[0].toUpperCase() + stat.slice(1).replace(/[A-Z]/g, " $&");
+			key.innerText = (stat[0].toUpperCase() + stat.slice(1).replace(/[A-Z]/g, " $&")).replace("Percent", "%");
 			key.title = meta.desc;
 			key.style.textAlign = "right";
 			this.dataSlots[stat] = value;
