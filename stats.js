@@ -10,7 +10,7 @@ class BuzzStats extends BuzzPersist {
 			currentStreak: 0,
 			totalTime: 0,
 			averageTime: 0,
-			bestTime: 0,
+			bestTime: null,
 		};
 	}
 	static get allMeta() {
@@ -40,7 +40,7 @@ class BuzzStats extends BuzzPersist {
 			},
 			bestTime: {
 				desc: "The least amount of time spent on a correct number",
-				transform: ms => (ms / 1000).toFixed(2) + "s"
+				transform: ms => ms === null ? "Never" : (ms / 1000).toFixed(2) + "s"
 			}
 		};
 	}
@@ -99,7 +99,7 @@ class BuzzStats extends BuzzPersist {
 		}
 	}
 	least(name, value) {
-		if(value < this.data[name]) {
+		if(this.data[name] === null || value < this.data[name]) {
 			this.data[name] = value;
 			this.serialize();
 		}
