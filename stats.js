@@ -36,11 +36,11 @@ class BuzzStats extends BuzzPersist {
 			},
 			averageTime: {
 				desc: "Average time spent on a number",
-				transform: ms => (ms / 1000).toFixed(2) + "s"
+				transform: ms => (ms / 1000).toFixed(3) + "s"
 			},
 			bestTime: {
 				desc: "The least amount of time spent on a correct number",
-				transform: ms => ms === null ? "Never" : (ms / 1000).toFixed(2) + "s"
+				transform: ms => ms === null ? "Never" : (ms / 1000).toFixed(3) + "s"
 			}
 		};
 	}
