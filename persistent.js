@@ -30,4 +30,10 @@ class BuzzPersist {
 		localStorage.setItem(this.key, JSON.stringify(this.data));
 		this.lastSerialize = null;
 	}
+	set(name, value) {
+		this.data[name] = value;
+	}
+	get(name) {
+		return this.data[name];
+	}
 }

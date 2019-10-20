@@ -122,11 +122,11 @@ class BuzzCount extends LeastPrime {
 }
 
 class PartialBuzzCount extends BuzzCount {
-	constructor() {
+	constructor(blacklist) {
 		super();
 		this.list = {};
 		for(let i of super.all)
-			this.list[i] = true;
+			this.list[i] = !~blacklist.indexOf(i);
 	}
 	get all() {
 		return super.all.filter(word => this.list[word]);

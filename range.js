@@ -1,11 +1,18 @@
 "use strict";
 
 class RangeMaker {
-	constructor(parent) {
-		this.min = 1;
-		this.max = 200;
+	constructor(min, max, linear, rs) {
+		this.min = min;
+		this.max = max;
+		this.linear = linear;
+		if(linear) {
+			this.pos = rs ? this.randRoll() : min;
+		}
+	}
+	randRoll() {
+		return parseInt(this.min + Math.random() * (this.max - this.min));
 	}
 	roll() {
-		return parseInt(this.min + Math.random() * (this.max - this.min));
+		return this.linear ? this.pos++ : this.randRoll();
 	}
 }

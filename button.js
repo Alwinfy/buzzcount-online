@@ -25,14 +25,14 @@ class ToggleButton extends KeyedButton {
 		super(parent, label, keys);
 		this.checked = false;
 		this.button.classList.add("toggle-button");
-		this.button.addEventListener("click", this.handle.bind(this));
+		this.button.addEventListener("click", this.click.bind(this));
 	}
-	handle(ev) {
+	click(ev) {
 		this.checked = !this.checked;
 		this.button.style.borderStyle = this.checked ? 'inset' : 'outset';
 	}
 	reset() {
 		this.checked = true;
-		this.handle(null);
+		this.click(null);
 	}
 }

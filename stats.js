@@ -76,12 +76,6 @@ class BuzzStats extends BuzzPersist {
 			this.dataSlots[stat].innerText = (meta.transform || (x => x))(this.data[stat]);
 		}
 	}
-	set(name, value) {
-		this.data[name] = value;
-	}
-	get(name) {
-		return this.data[name];
-	}
 	add(name, value) {
 		this.data[name] += value;
 		this.serialize();

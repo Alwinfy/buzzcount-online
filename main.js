@@ -1,7 +1,9 @@
 "use strict";
 
 function main() {
-	const bc = new BuzzCount();
+	const conf = JSON.parse(localStorage.getItem("settings"));
+	const rng = new RangeMaker(conf.min, conf.max, conf.linear, conf.randStart);
+	const bc = new PartialBuzzCount(conf.blacklist);
 	this.buttons = [];
 	const letters = new Set();
 	const firstletter = word => {
@@ -30,7 +32,6 @@ function main() {
 	const go = new KeyedButton(document.querySelector(".game-container"), goword.toUpperCase(), ["Enter", goword[firstletter(goword)]]);
 	go.button.classList.add("flex-elem");
 	go.button.classList.add("go-button");
-	const rng = new RangeMaker();
 	let num;
 	const promp = document.querySelector(".number");
 	const stats = new BuzzStats("all", document.querySelector(".stats"));
@@ -61,4 +62,16 @@ function main() {
 			stats.wipe();
 		location.reload();
 	}
+}
+
+function settings() {
+	const settings = new BuzzConfig("settings", document.querySelector(".settings"));
+	document.querySelector(".snr").addEventListener("click", ev => {
+		settings.write();
+		location.replace("index.html");
+	});
+	document.querySelector(".cnr").addEventListener("click", ev => {
+		if(confirm("Are you sure you want to discard changes?"))
+			location.replace("index.html");
+	});
 }
