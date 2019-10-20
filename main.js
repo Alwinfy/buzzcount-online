@@ -1,7 +1,7 @@
 "use strict";
 
 function main() {
-	const conf = JSON.parse(localStorage.getItem("settings"));
+	const conf = JSON.parse(localStorage.getItem("settings")) || BuzzConfig.allData;
 	const rng = new RangeMaker(conf.min, conf.max, conf.linear, conf.randStart);
 	const bc = new PartialBuzzCount(conf.blacklist);
 	this.buttons = [];

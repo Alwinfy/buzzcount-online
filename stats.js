@@ -109,8 +109,6 @@ class BuzzStats extends BuzzPersist {
 		this.last = now;
 		this.increment("attempts");
 		this.add("totalTime", elapsed);
-		this.set("averageTime", this.get("totalTime") / this.get("attempts"));
-		this.set("percentCorrect", this.get("correct") / this.get("attempts"));
 		if(correct) {
 			this.increment("correct");
 			this.increment("currentStreak");
@@ -118,6 +116,8 @@ class BuzzStats extends BuzzPersist {
 			this.least("bestTime", elapsed);
 		}
 		else this.clear("currentStreak");
+		this.set("averageTime", this.get("totalTime") / this.get("attempts"));
+		this.set("percentCorrect", this.get("correct") / this.get("attempts"));
 		this.updateView();
 	}
 	wipe() {
